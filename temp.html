@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutum-Tech Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #ff4444;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff4444;
+        }
+
+        .contact-btn {
+            background: #ff4444;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .contact-btn:hover {
+            background: #e53e3e;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+                        url('https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: #ff4444;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #e53e3e;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .status-badge {
+            background: #10b981;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .chart-placeholder {
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 0;
+            background: #4a5568;
+            color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            color: #1a202c;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: #ff4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: #ff4444;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Foundation Section */
+        .foundation-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .foundation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .foundation-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .foundation-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ff4444;
+            margin-bottom: 1rem;
+        }
+
+        .foundation-card p {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .values-section {
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .values-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .value-letter {
+            width: 40px;
+            height: 40px;
+            background: #ff4444;
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+
+        .value-text {
+            flex: 1;
+        }
+
+        .value-name {
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.2rem;
+        }
+
+        .value-desc {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .metrics-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .foundation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">T</div>
+                <span>tutum</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#blog">Blog</a>
+                <a href="#careers">Careers</a>
+            </nav>
+            <a href="#contact" class="contact-btn">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Protection is our<br>business</h1>
+            <p>Your trusted partner in comprehensive security solutions across Malawi</p>
+            <div class="hero-buttons">
+                <a href="#quote" class="btn-primary">Request a Quote</a>
+                <a href="#about" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="dashboard-container">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title">Security Analytics</div>
+                        <div class="status-badge">LIVE</div>
+                    </div>
+                    <div class="metrics-row">
+                        <div class="metric-card">
+                            <div class="metric-number">17.6K</div>
+                            <div class="metric-label">Active Guards</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-number">1.3%</div>
+                            <div class="metric-label">Incident Rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-number">25.2</div>
+                            <div class="metric-label">Response Time</div>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        Security Performance Analytics
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2>Who We Are</h2>
+                    <p>At Tutum Tech Security Services, protection is our business. We are a trusted security partner for businesses, institutions, and individuals across Malawi.</p>
+                    <p>With a commitment to safety, professionalism, and innovation, we deliver tailored security solutions that include corporate security management, personal protection, K9 units, and advanced security technology systems.</p>
+                    <p>Our experienced team works around the clock to ensure your peace of mind—because your safety is not just our priority, it's our promise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </div>
+                    <h3>Personal Security Management</h3>
+                    <p>Elite personal protection services including VIP security, executive protection, and close protection officers for high-profile individuals.</p>
+                    <a href="#" class="read-more">Read More ></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                        </svg>
+                    </div>
+                    <h3>Corporate Security Management</h3>
+                    <p>Comprehensive security solutions for businesses including access control, asset protection, and workplace security management.</p>
+                    <a href="#" class="read-more">Read More ></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                            <path d="M17 12h-5v5h5v-5zM16 6V4l-1 1-5-5-5 5-1-1v2H4v10.5c0 .83.67 1.5 1.5 1.5h13c.83 0 1.5-.67 1.5-1.5V6h0zm0 10.5H8V8h8v8.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Event Security Management</h3>
+                    <p>Professional event security services including crowd control, venue protection, and emergency response for all types of gatherings.</p>
+                    <a href="#" class="read-more">Read More ></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
+                        </svg>
+                    </div>
+                    <h3>Security Technology Management</h3>
+                    <p>Advanced security technology including CCTV systems, access control, alarm systems, and integrated security platforms.</p>
+                    <a href="#" class="read-more">Read More ></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                            <path d="M4.5 12.5C7 10 12 10 12 10s5 0 7.5 2.5c1.5 1.5 1.5 4 0 5.5s-4 1.5-5.5 0L12 16l-2 2c-1.5 1.5-4 1.5-5.5 0s-1.5-4 0-5.5zM12 2C8 6 8 10 12 10s4-4 0-8z"/>
+                        </svg>
+                    </div>
+                    <h3>K9 Security Management</h3>
+                    <p>Specialized K9 security units for detection services, patrol operations, and enhanced security presence with highly trained security dogs.</p>
+                    <a href="#" class="read-more">Read More ></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foundation Section -->
+    <section class="foundation-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Foundation</h2>
+            </div>
+            
+            <div class="foundation-grid">
+                <div class="foundation-card">
+                    <h3>Our Vision</h3>
+                    <p>To be the most respected and dependable provider of innovative and high-standard security services in Malawi and beyond.</p>
+                </div>
+                <div class="foundation-card">
+                    <h3>Our Mission</h3>
+                    <p>To protect what matters most — people, property, and peace of mind — through expert personnel, advanced technology, and integrity-driven service delivery.</p>
+                </div>
+            </div>
+
+            <div class="values-section">
+                <h3 class="values-title">Our Values</h3>
+                <div class="values-list">
+                    <div class="value-item">
+                        <div class="value-letter">P</div>
+                        <div class="value-text">
+                            <div class="value-name">Professionalism</div>
+                            <div class="value-desc">We uphold the highest standards in all our services</div>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-letter">R</div>
+                        <div class="value-text">
+                            <div class="value-name">Reliability</div>
+                            <div class="value-desc">Our clients count on us day and night</div>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-letter">I</div>
+                        <div class="value-text">
+                            <div class="value-name">Integrity</div>
+                            <div class="value-desc">Ethical service delivery is non-negotiable</div>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-letter">D</div>
+                        <div class="value-text">
+                            <div class="value-name">Delivery</div>
+                            <div class="value-desc">We meet expectations with precision</div>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-letter">E</div>
+                        <div class="value-text">
+                            <div class="value-name">Enthusiasm</div>
+                            <div class="value-desc">Passion drives our performance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
