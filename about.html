@@ -1,19 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Tutum Tech Security</title>
+    <title>Tutum Tech Security - Protection is our business</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+
+        .services-section {
+            background: #fff;
+            padding: 60px 0 40px 0;
+        }
+
+        .main-container {
+            max-width: 1100px;
+        }
+
+        .services-heading {
+            margin-bottom: 40px;
+        }
+
+        .services-heading h2 {
+            color: #dc2626;
+        }
+
+        .services-flex {
+            gap: 32px;
+        }
+
+        .service-card {
+            min-width: 260px;
+            max-width: 320px;
+        }
+
+        .content-section ul {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.7;
+            padding-left: 1.2em;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/about-hero.jfif') center/cover no-repeat;
+            height: 50vh;
+        }
+
+        .vision-mission {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .vision-mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .vision-mission-box {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f1f3;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vision-mission-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .vision-mission-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .vision-mission-box h2 {
+            color: var(--primary-red);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .vision-mission-box p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-medium);
+            text-align: center;
+        }
+
+       .values-section {
+            padding: 80px 0;
+            background: inherit;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .values-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .values-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-medium);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.7;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .value-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f1f3;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: left;
+            width: 100%;
+            min-height: 120px;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-red);
+            color: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .value-text {
+            flex: 1;
+        }
+
+        .value-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .value-desc {
+            font-size: 1rem;
+            color: var(--gray-medium);
+            line-height: 1.5;
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+            .values-section {
+                padding: 60px 0;
+            }
+
+            .values-title {
+                font-size: 2.2rem;
+            }
+
+            .values-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 50px;
+            }
+
+            .values-list {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 20px;
+            }
+
+            .value-item {
+                padding: 25px 18px;
+                min-height: 110px;
+            }
+
+            .value-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+                margin-right: 18px;
+            }
+
+            .value-name {
+                font-size: 1.1rem;
+            }
+
+            .value-desc {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .values-section {
+                padding: 50px 0;
+            }
+
+            .values-container {
+                padding: 0 16px;
+            }
+
+            .values-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .values-subtitle {
+                font-size: 1rem;
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+
+            .values-list {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                max-width: 500px;
+            }
+
+            .value-item {
+                padding: 20px 16px;
+                min-height: 100px;
+                border-radius: 10px;
+            }
+
+            .value-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                margin-right: 16px;
+                border-radius: 10px;
+            }
+
+            .value-name {
+                font-size: 1rem;
+                margin-bottom: 6px;
+            }
+
+            .value-desc {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .values-section {
+                padding: 40px 0;
+            }
+
+            .values-container {
+                padding: 0 12px;
+            }
+
+            .values-title {
+                font-size: 1.6rem;
+            }
+
+            .values-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 30px;
+            }
+
+            .values-list {
+                gap: 12px;
+            }
+
+            .value-item {
+                padding: 18px 14px;
+                min-height: 90px;
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .value-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+                margin-right: 14px;
+                margin-top: 2px;
+            }
+
+            .value-name {
+                font-size: 0.95rem;
+                margin-bottom: 4px;
+            }
+
+            .value-desc {
+                font-size: 0.85rem;
+                line-height: 1.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vision-mission-container {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+
+            
+        }
+    </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="./assets/images/logo.png" alt="Tutum Tech Security Logo">
+                <img src="../assets/images/logo.png" alt="Tutum Tech Security Logo">
             </a>
             <div class="menu-toggle">
                 <span></span>
@@ -24,7 +359,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="blog.html">Blog</a></li>
                 <li><a href="careers.html">Careers</a></li>
                 <li><a href="contact.html" class="cta-button">Contact Us</a></li>
             </ul>
@@ -32,7 +366,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;">
+    <header class="hero">
         <div class="hero-content">
             <h1>About Tutum-Tech</h1>
             <p>Professional. Reliable. Innovative. Your trusted security partner in Malawi and beyond.</p>
@@ -42,14 +376,17 @@
     <!-- Main Content -->
     <main>
         <!-- Who We Are -->
-        <section class="intro" style="background: #fafafa;">
+        <section class="intro">
             <div class="intro-container">
                 <div class="intro-image">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tutum-Tech Security Team">
+                    <img src="../assets/images/intro.jfif" alt="Tutum-Tech Security Team">
                 </div>
                 <div class="intro-content">
                     <h2>Who We Are</h2>
-                    <p>Tutum-Tech is a trusted Malawian security firm offering professional manned guarding, security technology, and strategic protection services. With a deep understanding of the evolving security landscape, we consistently adapt to provide effective, modern, and reliable security solutions.</p>
+                    <p>Tutum-Tech is a trusted Malawian security firm offering professional manned guarding, security
+                        technology, and strategic protection services. With a deep understanding of the evolving
+                        security landscape, we consistently adapt to provide effective, modern, and reliable security
+                        solutions.</p>
                 </div>
             </div>
         </section>
@@ -61,14 +398,16 @@
                         <i class="fas fa-eye"></i>
                     </div>
                     <h2>Our Vision</h2>
-                    <p>To be the most respected and dependable provider of innovative and high-standard security services in Malawi and beyond.</p>
+                    <p>To be the most respected and dependable provider of innovative and high-standard security
+                        services in Malawi and beyond.</p>
                 </div>
                 <div class="vision-mission-box">
                     <div class="vision-mission-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h2>Our Mission</h2>
-                    <p>To protect what matters most — people, property, and peace of mind — through expert personnel, advanced technology, and integrity-driven service delivery.</p>
+                    <p>To protect what matters most — people, property, and peace of mind — through expert personnel,
+                        advanced technology, and integrity-driven service delivery.</p>
                 </div>
             </div>
             <div class="values-section">
@@ -125,47 +464,51 @@
         </section>
 
         <!-- Our Team -->
-        <section class="intro" style="background: #fafafa;">
+        <section class="intro">
             <div class="intro-container">
                 <div class="intro-image">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tutum-Tech Team">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Tutum-Tech Team">
                 </div>
                 <div class="intro-content">
                     <h2>Our Team</h2>
-                    <p>Every guard, supervisor, and manager at Tutum-Tech is vetted, licensed, and trained to provide unmatched service. Our team is dedicated to delivering excellence through both presence and performance.</p>
+                    <p>Every guard, supervisor, and manager at Tutum-Tech is vetted, licensed, and trained to provide
+                        unmatched service. Our team is dedicated to delivering excellence through both presence and
+                        performance.</p>
                 </div>
             </div>
         </section>
 
         <!-- Why Choose Tutum-Tech -->
-        <section class="services-section" style="background: #fff; padding: 60px 0 40px 0;">
-            <div class="main-container" style="max-width: 1100px;">
-                <div class="services-heading" style="margin-bottom: 40px;">
-                    <h2 style="color: #dc2626;">Why Choose Tutum-Tech</h2>
+        <section class="services-section">
+            <div class="main-container">
+                <div class="services-heading">
+                    <h2>Why Choose Tutum-Tech</h2>
                 </div>
-                <div class="services-flex" style="gap: 32px;">
+                <div class="services-flex">
                     <!-- Block 1 -->
-                    <div class="service-card" style="min-width:260px;max-width:320px;">
+                    <div class="service-card">
                         <div class="content-section">
                             <div class="service-icon">
                                 <i class="fas fa-certificate"></i>
                             </div>
                             <h2 class="title">Professional Standards</h2>
-                            <ul style="font-size: 1rem; color: #333; line-height: 1.7; padding-left: 1.2em;">
+                            <ul>
                                 <li>Licensed and rigorously trained personnel</li>
                                 <li>Unrivalled professionalism in all services</li>
-                                <li>Ethical conduct guided by PRIDE:<br><span style="font-weight:600;">Professionalism, Reliability, Integrity, Delivery, Enthusiasm</span></li>
+                                <li>Ethical conduct guided by PRIDE:<br><span style="font-weight:600;">Professionalism,
+                                        Reliability, Integrity, Delivery, Enthusiasm</span></li>
                             </ul>
                         </div>
                     </div>
                     <!-- Block 2 -->
-                    <div class="service-card" style="min-width:260px;max-width:320px;">
+                    <div class="service-card">
                         <div class="content-section">
                             <div class="service-icon">
                                 <i class="fas fa-sync-alt"></i>
                             </div>
                             <h2 class="title">Reliable Operations</h2>
-                            <ul style="font-size: 1rem; color: #333; line-height: 1.7; padding-left: 1.2em;">
+                            <ul>
                                 <li>24/7 operational support and supervision</li>
                                 <li>Effective and structured management system</li>
                                 <li>Flexible manned services for short-term, long-term, and emergency needs</li>
@@ -173,13 +516,13 @@
                         </div>
                     </div>
                     <!-- Block 3 -->
-                    <div class="service-card" style="min-width:260px;max-width:320px;">
+                    <div class="service-card">
                         <div class="content-section">
                             <div class="service-icon">
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <h2 class="title">Performance & Accountability</h2>
-                            <ul style="font-size: 1rem; color: #333; line-height: 1.7; padding-left: 1.2em;">
+                            <ul>
                                 <li>Consistent quality assurance through performance tracking</li>
                                 <li>Real-time incident reporting and response</li>
                                 <li>Dedicated client communication channels</li>
@@ -187,13 +530,13 @@
                         </div>
                     </div>
                     <!-- Block 4 -->
-                    <div class="service-card" style="min-width:260px;max-width:320px;">
+                    <div class="service-card">
                         <div class="content-section">
                             <div class="service-icon">
                                 <i class="fas fa-th-large"></i>
                             </div>
                             <h2 class="title">Comprehensive Service Offering</h2>
-                            <ul style="font-size: 1rem; color: #333; line-height: 1.7; padding-left: 1.2em;">
+                            <ul>
                                 <li>Broad range of personal, corporate, event, and tech security services</li>
                                 <li>Integrated solutions that combine manned guarding with modern technology</li>
                                 <li>Customized security plans tailored to client-specific needs</li>
@@ -209,7 +552,8 @@
     <section class="cta-section">
         <div class="cta-container">
             <h2>Ready to Secure Your Peace of Mind?</h2>
-            <p>Join hundreds of satisfied clients who trust Tutum Tech Security for their protection needs. Get your free security assessment today.</p>
+            <p>Join hundreds of satisfied clients who trust Tutum Tech Security for their protection needs. Get your
+                free security assessment today.</p>
 
             <div class="cta-buttons-section">
                 <a href="contact.html#quote" class="btn-cta-primary">
@@ -217,8 +561,7 @@
                     Get Free Quote
                 </a>
                 <a href="tel:+265123456789" class="btn-cta-secondary">
-                    <i class="fas fa-phone-alt"></i>
-                    Call Now: +265 123 456 789
+                    Call Now: +265 999 61 30 68
                 </a>
             </div>
         </div>
@@ -231,7 +574,9 @@
                 <!-- Company Info -->
                 <div class="footer-section">
                     <h3>Tutum Tech Security</h3>
-                    <p>Your trusted partner in comprehensive security solutions across Malawi. We are committed to providing professional, reliable, and innovative security services that give you complete peace of mind.</p>
+                    <p>Your trusted partner in comprehensive security solutions across Malawi. We are committed to
+                        providing professional, reliable, and innovative security services that give you complete peace
+                        of mind.</p>
                     <div class="footer-social">
                         <a href="#" class="footer-social-link">
                             <i class="fab fa-facebook-f"></i>
@@ -255,7 +600,6 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="careers.html">Careers</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -278,11 +622,11 @@
                     <h3>Contact Info</h3>
                     <div class="footer-contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Blantyre, Malawi</span>
+                        <span>Lilongwe, Malawi</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+265 123 456 789</span>
+                        <span>+265 999 61 30 68</span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-envelope"></i>
@@ -304,4 +648,5 @@
         </div>
     </footer>
 </body>
-</html> 
+
+</html>
