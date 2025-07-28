@@ -1,4 +1,4 @@
- // Get DOM elements
+  // Get DOM elements
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         const body = document.body;
