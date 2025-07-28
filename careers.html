@@ -10,319 +10,102 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <style>
-        :root {
-            --primary-blue: #1e88e5;
-            --primary-red: #ff3b30;
-            --white: #ffffff;
-            --dark: #1a1a1a;
-            --gray-light: #fafafa;
-            --gray-medium: #666;
-            --gray-border: #eee;
-        }
+    :root {
+        --primary-blue: #1e88e5;
+        --primary-red: #ff3b30;
+        --white: #ffffff;
+        --dark: #1a1a1a;
+        --gray-light: #fafafa;
+        --gray-medium: #666;
+        --gray-border: #eee;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: "Inter", sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+    body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
 
 
-        /* Services Hero */
+    /* Services Hero */
+    .services-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+            url('../assets/images/services-hero.jfif');
+        background-size: cover;
+        background-position: center;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        text-align: center;
+    }
+
+    .services-hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .services-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+    }
+
+    .services-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        font-weight: 300;
+    }
+
+    
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+
         .services-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('../assets/images/services-hero.jfif');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            text-align: center;
-        }
-
-        .services-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            height: 40vh;
         }
 
         .services-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            font-size: 2rem;
         }
 
-        .services-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            font-weight: 300;
+
+        .cta-section h2 {
+            font-size: 2rem;
         }
 
-        /* Services Content */
-        .services-content {
-            padding: 80px 0;
-            background: var(--gray-light);
-        }
+    }
 
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    
+</style>
 
-        .service-box {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 60px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            min-height: 400px;
-        }
-
-        .service-content.reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .service-text {
-            padding: 60px;
-        }
-
-        .service-box.reverse .service-text {
-            order: 2;
-        }
-
-        .service-box.reverse .service-image {
-            order: 1;
-        }
-
-        .service-category {
-            display: inline-block;
-            background: var(--primary-red);
-            color: var(--white);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .service-text h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .service-text p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--gray-medium);
-            margin-bottom: 20px;
-        }
-
-        .service-features {
-            list-style: none;
-            margin: 25px 0;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 1rem;
-            color: #333;
-        }
-
-        .service-features li i {
-            color: var(--primary-blue);
-            margin-right: 12px;
-            font-size: 16px;
-            width: 20px;
-        }
-
-        .service-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s;
-            margin-top: 20px;
-        }
-
-        .service-btn:hover {
-            background: #1565c0;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
-        }
-
-        .service-image {
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .service-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(30, 136, 229, 0.1), rgba(255, 59, 48, 0.1));
-        }
-
-        /* Individual service images */
-        .personal-security-img {
-            background-image: url('../assets/images/personal.jpeg');
-        }
-
-        .corporate-security-img {
-            background-image: url('../assets/images/services-corporate.jpg');
-        }
-
-        .event-security-img {
-            background-image: url('../assets/images/services-event.jpg');
-        }
-
-        .security-technology-img {
-            background-image: url('../assets/images/services-tech.jpeg');
-        }
-
-        .k9-security-img {
-            background-image: url("https://images.unsplash.com/photo-1551717743-49959800b1f6?w=600&h=400&fit=crop");
-        }
-
-        .consulting-img {
-            background-image: url("https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop");
-        }
-
-       
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .utility-content {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .contact-info {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .services-hero {
-                height: 40vh;
-            }
-
-            .services-hero h1 {
-                font-size: 2rem;
-            }
-
-            .service-content {
-                grid-template-columns: 1fr;
-            }
-
-            .service-box.reverse .service-text {
-                order: 1;
-            }
-
-            .service-box.reverse .service-image {
-                order: 2;
-            }
-
-            .service-text {
-                padding: 40px 30px;
-            }
-
-            .service-text h2 {
-                font-size: 1.8rem;
-            }
-
-            .service-image {
-                height: 300px;
-            }
-
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-
-        }
-
-        @media (max-width: 480px) {
-            .contact-info {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .social-links {
-                gap: 8px;
-            }
-
-            .nav-container {
-                height: 70px;
-            }
-
-            .service-text {
-                padding: 30px 20px;
-            }
-
-            .footer-social {
-                justify-content: center;
-            }
-        }
-    </style>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="../assets/images/logo.png" alt="Tutum Tech Security Logo">
+                <img src="./assets/images/logo.png" alt="Tutum Tech Security Logo">
             </a>
-            <div class="menu-toggle">
+            <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="careers.html" class="active">Careers</a></li>
+                <li><a href="careers.html"  class="active">Careers</a></li>
                 <li><a href="contact.html" class="cta-button">Contact Us</a></li>
             </ul>
         </div>
@@ -341,9 +124,6 @@
             <h2 style="color: #ff3b30; font-size: 35px; text-align: center;">No Current Openings Available</h2>
         </div>
     </section>
-
-    
-    
     <script src="./js/main.js"></script>
 </body>
 

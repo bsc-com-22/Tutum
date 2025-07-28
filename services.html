@@ -7,7 +7,7 @@
     <title>Tutum Tech Security - Protection is our business</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <style>
         :root {
@@ -218,7 +218,7 @@
         }
 
         .k9-security-img {
-            background-image: url("https://images.unsplash.com/photo-1551717743-49959800b1f6?w=600&h=400&fit=crop");
+            background-image: url('./assets/images/k9.jpg');
         }
 
         .consulting-img {
@@ -229,21 +229,6 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .utility-content {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .contact-info {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
 
             .services-hero {
                 height: 40vh;
@@ -301,9 +286,7 @@
                 padding: 30px 20px;
             }
 
-            .footer-social {
-                justify-content: center;
-            }
+            
         }
     </style>
 <body>
@@ -311,14 +294,14 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="../assets/images/logo.png" alt="Tutum Tech Security Logo">
+                <img src="./assets/images/logo.png" alt="Tutum Tech Security Logo">
             </a>
-            <div class="menu-toggle">
+            <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
@@ -450,28 +433,6 @@
                 </div>
             </div>
 
-            <!-- Security Consulting Service -->
-            <div class="service-box reverse">
-                <div class="service-content">
-                    <div class="service-text">
-                        <span class="service-category">Consulting</span>
-                        <h2>Security Consulting & Risk Assessment</h2>
-                        <p>Get expert advice on your security needs with our professional consulting services. We conduct thorough risk assessments and develop customized security strategies.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i>Security Risk Assessment</li>
-                            <li><i class="fas fa-check-circle"></i>Vulnerability Analysis</li>
-                            <li><i class="fas fa-check-circle"></i>Security Policy Development</li>
-                            <li><i class="fas fa-check-circle"></i>Training & Education Programs</li>
-                            <li><i class="fas fa-check-circle"></i>Compliance Consulting</li>
-                        </ul>
-                        <a href="#" class="service-btn">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="service-image consulting-img"></div>
-                </div>
-            </div>
-
         </div>
     </section>
     
@@ -574,7 +535,7 @@
             </div>
         </div>
     </footer>
-    <script src="./assets/js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

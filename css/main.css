@@ -422,7 +422,7 @@ body {
 
 .k9-security {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("https://images.unsplash.com/photo-1551717743-49959800b1f6?w=400&h=200&fit=crop");
+    url('../assets/images/k9.jpg');
 }
 
 .blue-icon-box {
