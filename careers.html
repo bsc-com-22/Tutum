@@ -1,100 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutum Tech Security - Protection is our business</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Tutum Tech Security - Careers</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <style>
+        :root {
+            --primary-blue: #1e88e5;
+            --primary-red: #ff3b30;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --gray-light: #fafafa;
+            --gray-medium: #666;
+            --gray-border: #eee;
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --border: #e5e7eb;
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo img {
+            height: 45px;
+            max-width: 180px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-medium);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--primary-red) !important;
+            color: var(--white) !important;
+            padding: 12px 24px !important;
+            border-radius: var(--border-radius-sm) !important;
+            font-weight: 600 !important;
+            transition: all 0.2s ease !important;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #e53935 !important;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Careers Hero Section */
+        .careers-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .careers-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .careers-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            color: var(--white);
+        }
+
+        .careers-hero p {
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Careers Section */
+        .careers-section {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .careers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .careers-header {
+            margin-bottom: 32px;
+        }
+
+        .careers-header .icon-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .careers-header .icon-text i {
+            font-size: 20px;
+            color: var(--primary-red);
+        }
+
+        .careers-header .icon-text p {
+            color: var(--primary-red);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .careers-header h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .careers-content p {
+            font-size: 18px;
+            color: var(--gray-medium);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us-section {
+            padding: 80px 20px;
+            background: var(--gray-light);
+        }
+
+        .why-choose-us-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-choose-us-header {
+            margin-bottom: 48px;
+        }
+
+        .why-choose-us-header .icon-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .why-choose-us-header .icon-text i {
+            font-size: 20px;
+            color: var(--primary-red);
+        }
+
+        .why-choose-us-header .icon-text p {
+            color: var(--primary-red);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .why-choose-us-header h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .why-choose-us-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .reason-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            max-width: 360px;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .reason-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+        }
+
+        .reason-card p {
+            font-size: 16px;
+            color: var(--gray-medium);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1565c0 100%);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .cta-container p {
+            font-size: 18px;
+            color: var(--white);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #e53935;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                padding: 32px 24px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 16px 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+                margin-top: 24px;
+            }
+
+            .careers-hero {
+                padding: 80px 0 60px;
+            }
+
+            .careers-hero h1 {
+                font-size: 2rem;
+            }
+
+            .careers-hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .careers-header .icon-text {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .why-choose-us-flex {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-container h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<style>
-    :root {
-        --primary-blue: #1e88e5;
-        --primary-red: #ff3b30;
-        --white: #ffffff;
-        --dark: #1a1a1a;
-        --gray-light: #fafafa;
-        --gray-medium: #666;
-        --gray-border: #eee;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: "Inter", sans-serif;
-        line-height: 1.6;
-        color: #333;
-    }
-
-
-    /* Services Hero */
-    .services-hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url('../assets/images/services-hero.jfif');
-        background-size: cover;
-        background-position: center;
-        height: 50vh;
-        display: flex;
-        align-items: center;
-        color: var(--white);
-        text-align: center;
-    }
-
-    .services-hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .services-hero h1 {
-        font-size: clamp(2.5rem, 5vw, 3.5rem);
-        font-weight: 700;
-        margin-bottom: 24px;
-        letter-spacing: -0.02em;
-    }
-
-    .services-hero p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-        font-weight: 300;
-    }
-
-    
-
-
-    /* Responsive */
-    @media (max-width: 768px) {
-
-        .services-hero {
-            height: 40vh;
-        }
-
-        .services-hero h1 {
-            font-size: 2rem;
-        }
-
-
-        .cta-section h2 {
-            font-size: 2rem;
-        }
-
-    }
-
-    
-</style>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="./assets/images/logo.png" alt="Tutum Tech Security Logo">
+                <img src="https://via.placeholder.com/180x45/1e88e5/ffffff?text=Tutum+Tech" alt="Tutum Tech Security Logo">
             </a>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -105,26 +453,135 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="careers.html"  class="active">Careers</a></li>
+                <li><a href="careers.html" class="active">Careers</a></li>
                 <li><a href="contact.html" class="cta-button">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Services Hero -->
-    <section class="services-hero">
-        <div class="services-hero-content">
+    <!-- Careers Hero Section -->
+    <section class="careers-hero">
+        <div class="careers-hero-content">
             <h1>Join Our Team</h1>
-            <p>Build your career with Malawi's leading security services provider</p>
+            <p>Build your career with Malawi's leading security services provider, delivering professional and ethical security solutions.</p>
         </div>
     </section>
 
-    <section>
-        <div>
-            <h2 style="color: #ff3b30; font-size: 35px; text-align: center;">No Current Openings Available</h2>
+    <!-- Careers Section -->
+    <section class="careers-section">
+        <div class="careers-container">
+            <div class="careers-header">
+                <div class="icon-text">
+                    <i class="fi fi-rr-shield-check"></i>
+                    <p>CAREER OPPORTUNITIES</p>
+                </div>
+                <h2>No Current Openings Available</h2>
+            </div>
+            <div class="careers-content">
+                <p>At Tutum Tech Security Services, we are always looking for talented and dedicated individuals to join our team. While there are no open positions at the moment, we encourage you to check back regularly or contact us to express your interest in future opportunities.</p>
+            </div>
         </div>
     </section>
-    <script src="./js/main.js"></script>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us-section">
+        <div class="why-choose-us-container">
+            <div class="why-choose-us-header">
+                <div class="icon-text">
+                    <i class="fi fi-rr-shield-check"></i>
+                    <p>WHY WORK WITH US</p>
+                </div>
+                <h2>Join a Team Committed to Excellence</h2>
+            </div>
+            <div class="why-choose-us-flex">
+                <div class="reason-card">
+                    <h3>Security Science Service (SSS)</h3>
+                    <p>Be part of a team that pioneers a unique approach to security, combining traditional methods with advanced technology for comprehensive protection.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Ethical & Professional Environment</h3>
+                    <p>Work with a team that upholds proactivity, reliability, integrity, and discipline in all operations.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Core Values</h3>
+                    <p>Join a company guided by loyalty, duty, respect, selflessness, honor, integrity, and courage, fostering a supportive work culture.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Dynamic Opportunities</h3>
+                    <p>Grow your career with opportunities in security management, K-9 operations, and cutting-edge security technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Contact us to learn more about future career opportunities with Tutum Tech Security Services and become part of our mission to provide wholesome security solutions.</p>
+            <div class="cta-buttons">
+                <a href="contact.html#quote" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                        <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                    </svg>
+                    Express Interest
+                </a>
+                <a href="contact.html" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger menu
+            const spans = menuToggle.getElementsByTagName('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.getElementsByTagName('span');
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>

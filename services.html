@@ -4,20 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutum Tech Security - Protection is our business</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Our Services - Tutum Tech Security</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<style>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <style>
         :root {
             --primary-blue: #1e88e5;
             --primary-red: #ff3b30;
+            --navy-blue: #0f4c75;
+            --sky-blue: #87ceeb;
             --white: #ffffff;
             --dark: #1a1a1a;
             --gray-light: #fafafa;
             --gray-medium: #666;
             --gray-border: #eee;
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --border: #e5e7eb;
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
         }
 
         * {
@@ -27,94 +32,125 @@
         }
 
         body {
-            font-family: "Inter", sans-serif;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #333;
+            background: var(--white);
         }
 
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
 
-        /* Services Hero */
-        .services-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('../assets/images/services-hero.jfif');
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo img {
+            height: 45px;
+            max-width: 180px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-medium);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s ease;
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--primary-red) !important;
+            color: var(--white) !important;
+            padding: 12px 24px !important;
+            border-radius: var(--border-radius-sm) !important;
+            font-weight: 600 !important;
+            transition: all 0.2s ease !important;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #e53935 !important;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1926&q=80');
             background-size: cover;
             background-position: center;
             height: 50vh;
             display: flex;
             align-items: center;
-            color: var(--white);
+            justify-content: center;
             text-align: center;
+            color: var(--white);
         }
 
-        .services-hero-content {
+        .hero-content {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        .services-hero h1 {
+        .hero h1 {
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             letter-spacing: -0.02em;
         }
 
-        .services-hero p {
-            font-size: 1.2rem;
+        .hero p {
+            font-size: 18px;
             opacity: 0.9;
-            font-weight: 300;
+            margin-bottom: 24px;
         }
 
-        /* Services Content */
-        .services-content {
-            padding: 80px 0;
-            background: var(--gray-light);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .service-box {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 60px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            min-height: 400px;
-        }
-
-        .service-content.reverse {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .service-text {
-            padding: 60px;
-        }
-
-        .service-box.reverse .service-text {
-            order: 2;
-        }
-
-        .service-box.reverse .service-image {
-            order: 1;
-        }
-
-        .service-category {
+        .hero-badge {
             display: inline-block;
             background: var(--primary-red);
             color: var(--white);
@@ -127,19 +163,102 @@
             letter-spacing: 0.5px;
         }
 
-        .service-text h2 {
+        /* Services Section */
+        .services-section {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 60px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-height: 500px;
+        }
+
+        .service-content.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .service-text {
+            padding: 60px;
+        }
+
+        .service-card.reverse .service-text {
+            order: 2;
+        }
+
+        .service-card.reverse .service-image {
+            order: 1;
+        }
+
+        .service-category {
+            display: inline-block;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-text h3 {
             font-size: 2.2rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: var(--dark);
             margin-bottom: 20px;
             line-height: 1.3;
         }
 
         .service-text p {
-            font-size: 1.1rem;
+            font-size: 16px;
             line-height: 1.7;
             color: var(--gray-medium);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .service-features {
@@ -151,7 +270,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 12px;
-            font-size: 1rem;
+            font-size: 15px;
             color: #333;
         }
 
@@ -166,25 +285,27 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--primary-blue);
+            background: var(--primary-red);
             color: var(--white);
-            padding: 14px 28px;
-            border-radius: 8px;
+            padding: 16px 32px;
+            border-radius: var(--border-radius-sm);
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
             transition: all 0.3s;
             margin-top: 20px;
+            border: none;
+            cursor: pointer;
         }
 
         .service-btn:hover {
-            background: #1565c0;
+            background: #e53935;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-image {
-            height: 400px;
+            height: 500px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -197,56 +318,244 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(30, 136, 229, 0.1), rgba(255, 59, 48, 0.1));
+            background: linear-gradient(45deg, rgba(30, 136, 229, 0.05), rgba(255, 59, 48, 0.05));
         }
 
         /* Individual service images */
-        .personal-security-img {
-            background-image: url('../assets/images/personal.jpeg');
+        .corporate-security-img {
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
         }
 
-        .corporate-security-img {
-            background-image: url('../assets/images/services-corporate.jpg');
+        .personal-security-img {
+            background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
         }
 
         .event-security-img {
-            background-image: url('../assets/images/services-event.jpg');
+            background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
         }
 
         .security-technology-img {
-            background-image: url('../assets/images/services-tech.jpeg');
+            background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
         }
 
         .k9-security-img {
-            background-image: url('./assets/images/k9.jpg');
+            background-image: url('https://images.unsplash.com/photo-1551717743-49959800b1f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
         }
 
-        .consulting-img {
-            background-image: url("https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop");
+        .short-term-img {
+            background-image: url('https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
         }
 
-       
-        
-        /* Responsive */
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1926&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #e53935;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #1b262c 100%);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact-item i {
+            color: var(--primary-blue);
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-
-            .services-hero {
-                height: 40vh;
+            .menu-toggle {
+                display: flex;
             }
 
-            .services-hero h1 {
-                font-size: 2rem;
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                padding: 32px 24px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 16px 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+                margin-top: 24px;
             }
 
             .service-content {
                 grid-template-columns: 1fr;
             }
 
-            .service-box.reverse .service-text {
+            .service-card.reverse .service-text {
                 order: 1;
             }
 
-            .service-box.reverse .service-image {
+            .service-card.reverse .service-image {
                 order: 2;
             }
 
@@ -254,47 +563,51 @@
                 padding: 40px 30px;
             }
 
-            .service-text h2 {
+            .service-text h3 {
                 font-size: 1.8rem;
             }
 
             .service-image {
-                height: 300px;
+                height: 350px;
             }
 
-            .cta-section h2 {
-                font-size: 2rem;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: left;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
-            .contact-info {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .social-links {
-                gap: 8px;
-            }
-
-            .nav-container {
-                height: 70px;
-            }
-
             .service-text {
                 padding: 30px 20px;
             }
-
-            
         }
     </style>
+</head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="./assets/images/logo.png" alt="Tutum Tech Security Logo">
+                <img src="https://via.placeholder.com/180x45/1e88e5/ffffff?text=Tutum+Tech" alt="Tutum Tech Security Logo">
             </a>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -311,145 +624,172 @@
         </div>
     </nav>
 
-    <!-- Services Hero -->
-    <section class="services-hero">
-        <div class="services-hero-content">
-            <h1>Our Security Services</h1>
-            <p>Comprehensive protection solutions tailored to your unique needs</p>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Security Science Service (SSS)</span>
+            <h1>Comprehensive Security Solutions</h1>
+            <p>Professional security management through our unique Security Science Service approach. Crime has no hiding place.</p>
         </div>
-    </section>
+    </header>
 
-    <!-- Services Content -->
-    <section class="services-content">
-        <div class="services-container">
-            
-            <!-- Personal Security Service -->
-            <div class="service-box" id="personal-security">
-                <div class="service-content">
-                    <div class="service-text">
-                        <span class="service-category">Personal Protection</span>
-                        <h2>Personal Security Services</h2>
-                        <p>Our highly trained personal security professionals provide discreet, professional protection for individuals and families. We understand that personal safety is paramount, and our team delivers customized security solutions.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i>Executive Protection</li>
-                            <li><i class="fas fa-check-circle"></i>VIP Security Detail</li>
-                            <li><i class="fas fa-check-circle"></i>Celebrity Protection</li>
-                            <li><i class="fas fa-check-circle"></i>Family Security Services</li>
-                            <li><i class="fas fa-check-circle"></i>Travel Security Escort</li>
-                        </ul>
-                        <a href="contact.html" class="service-btn">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
+    <!-- Main Content -->
+    <main>
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="services-container">
+                <div class="section-header">
+                    <h2>Our Security Services</h2>
+                    <p>We provide wholesome security management through our expert Security Science Service (SSS), ensuring comprehensive protection of life, assets and property.</p>
+                </div>
+
+                <!-- Corporate Security Management -->
+                <div class="service-card" id="corporate-security">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <span class="service-category">Corporate Solutions</span>
+                            <h3>Corporate Security Management</h3>
+                            <p>Comprehensive security solutions for businesses of all sizes. Our corporate security management ensures the protection of your business assets, employees, and operations through professional and ethical security services.</p>
+                            <ul class="service-features">
+                                <li><i class="fi fi-rr-shield"></i>Asset and Property Security Management</li>
+                                <li><i class="fi fi-rr-money"></i>Cash Transfer Services</li>
+                                <li><i class="fi fi-rr-user"></i>Security Detail to Executive Members</li>
+                                <li><i class="fi fi-rr-search-alt"></i>Corporate Intelligence Management</li>
+                                <li><i class="fi fi-rr-headset"></i>Client Service Security Management</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">
+                                Get Quote <i class="fi fi-rr-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-image corporate-security-img"></div>
                     </div>
-                    <div class="service-image personal-security-img"></div>
+                </div>
+
+                <!-- Personal Security Management -->
+                <div class="service-card reverse" id="personal-security">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <span class="service-category">Personal Protection</span>
+                            <h3>Personal Security Management</h3>
+                            <p>Discreet and professional personal security services tailored to your individual needs. Our highly trained security professionals provide reliable protection for you and your family.</p>
+                            <ul class="service-features">
+                                <li><i class="fi fi-rr-home"></i>Asset and Property Security Management</li>
+                                <li><i class="fi fi-rr-building"></i>Managing Security of Premises</li>
+                                <li><i class="fi fi-rr-user-shield"></i>Security Detail to Individuals</li>
+                                <li><i class="fi fi-rr-wallet"></i>Personal Cash Transfer</li>
+                                <li><i class="fi fi-rr-route"></i>Security Patrols</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">
+                                Get Quote <i class="fi fi-rr-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-image personal-security-img"></div>
+                    </div>
+                </div>
+
+                <!-- Event Security Management -->
+                <div class="service-card" id="event-security">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <span class="service-category">Event Management</span>
+                            <h3>Event Security Management</h3>
+                            <p>Professional event security services for gatherings of all sizes. From intimate private functions to large-scale public events, we ensure your event runs smoothly and safely.</p>
+                            <ul class="service-features">
+                                <li><i class="fi fi-rr-shield"></i>Asset and Property Security Management</li>
+                                <li><i class="fi fi-rr-parking"></i>Parking Management</li>
+                                <li><i class="fi fi-rr-door-open"></i>Entrance Management</li>
+                                <li><i class="fi fi-rr-users"></i>Crowd Management</li>
+                                <li><i class="fi fi-rr-calendar-check"></i>Security Detail to Events</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">
+                                Get Quote <i class="fi fi-rr-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-image event-security-img"></div>
+                    </div>
+                </div>
+
+                <!-- Short Term Security -->
+                <div class="service-card reverse" id="short-term-security">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <span class="service-category">Flexible Solutions</span>
+                            <h3>Short Term Security</h3>
+                            <p>Flexible security solutions for temporary needs. Whether you need protection for a special occasion, construction site, or emergency situation, our short-term security services provide immediate professional protection.</p>
+                            <ul class="service-features">
+                                <li><i class="fi fi-rr-clock"></i>Immediate Response Available</li>
+                                <li><i class="fi fi-rr-hard-hat"></i>Construction Site Security</li>
+                                <li><i class="fi fi-rr-calendar"></i>Event-Specific Protection</li>
+                                <li><i class="fi fi-rr-exclamation-triangle"></i>Emergency Security Services</li>
+                                <li><i class="fi fi-rr-handshake"></i>Flexible Duration Contracts</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">
+                                Get Quote <i class="fi fi-rr-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-image short-term-img"></div>
+                    </div>
+                </div>
+
+                <!-- Security Technology Management -->
+                <div class="service-card" id="security-technology">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <span class="service-category">Technology Solutions</span>
+                            <h3>Security Technology Management</h3>
+                            <p>Cutting-edge security technology solutions integrated with professional monitoring services. We combine advanced technology with expert oversight to provide comprehensive security coverage.</p>
+                            <ul class="service-features">
+                                <li><i class="fi fi-rr-desktop"></i>Security Information System (SIS)</li>
+                                <li><i class="fi fi-rr-video-camera"></i>CCTV Installation, Maintenance & Remote Monitoring</li>
+                                <li><i class="fi fi-rr-bell"></i>Alarm Installation and Management</li>
+                                <li><i class="fi fi-rr-bolt"></i>Electric Fence Barrier Installation and Management</li>
+                                <li><i class="fi fi-rr-database"></i>Corporate Information Security Management</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">
+                                Get Quote <i class="fi fi-rr-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-image security-technology-img"></div>
+                    </div>
+                </div>
+
+                <!-- K9 Security Management -->
+                <div class="service-card reverse" id="k9-security">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <span class="service-category">Specialized Units</span>
+                            <h3>K9 Security Management</h3>
+                            <p>Professional K9 security services with highly trained dogs and certified handlers. Our specialized K9 units provide enhanced detection capabilities and powerful deterrent effects for high-security applications.</p>
+                            <ul class="service-features">
+                                <li><i class="fi fi-rr-dog"></i>K-9 Protection Dogs for Asset & Property Security</li>
+                                <li><i class="fi fi-rr-users"></i>K-9 Dog Support Squad</li>
+                                <li><i class="fi fi-rr-search-alt"></i>K-9 Security Detection Dogs</li>
+                                <li><i class="fi fi-rr-user"></i>K-9 Security Dog Handlers</li>
+                                <li><i class="fi fi-rr-award"></i>K-9 Dog Training Programs</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">
+                                Get Quote <i class="fi fi-rr-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="service-image k9-security-img"></div>
+                    </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <!-- Corporate Security Service -->
-            <div class="service-box reverse" id="corporate-security">
-                <div class="service-content">
-                    <div class="service-text">
-                        <span class="service-category">Corporate Solutions</span>
-                        <h2>Corporate Security Solutions</h2>
-                        <p>Protect your business assets, employees, and reputation with our comprehensive corporate security services. We provide integrated security solutions for businesses of all sizes.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i>Office Building Security</li>
-                            <li><i class="fas fa-check-circle"></i>Access Control Systems</li>
-                            <li><i class="fas fa-check-circle"></i>Security Guard Services</li>
-                            <li><i class="fas fa-check-circle"></i>Loss Prevention</li>
-                            <li><i class="fas fa-check-circle"></i>Emergency Response Planning</li>
-                        </ul>
-                        <a href="contact.html" class="service-btn">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="service-image corporate-security-img"></div>
-                </div>
-            </div>
-
-            <!-- Event Security Service -->
-            <div class="service-box" id="event-security">
-                <div class="service-content">
-                    <div class="service-text">
-                        <span class="service-category">Event Management</span>
-                        <h2>Event Security Services</h2>
-                        <p>Ensure your events run smoothly and safely with our professional event security team. From small private gatherings to large-scale public events, we've got you covered.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i>Concert & Festival Security</li>
-                            <li><i class="fas fa-check-circle"></i>Corporate Event Protection</li>
-                            <li><i class="fas fa-check-circle"></i>Wedding Security Services</li>
-                            <li><i class="fas fa-check-circle"></i>Crowd Control Management</li>
-                            <li><i class="fas fa-check-circle"></i>VIP Guest Protection</li>
-                        </ul>
-                        <a href="contact.html" class="service-btn">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="service-image event-security-img"></div>
-                </div>
-            </div>
-
-            <!-- Security Technology Service -->
-            <div class="service-box reverse" id="security-technology">
-                <div class="service-content">
-                    <div class="service-text">
-                        <span class="service-category">Technology Solutions</span>
-                        <h2>Security Technology & Systems</h2>
-                        <p>Stay ahead of threats with our cutting-edge security technology solutions. We integrate the latest surveillance and monitoring systems to provide comprehensive protection.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i>CCTV Surveillance Systems</li>
-                            <li><i class="fas fa-check-circle"></i>Alarm System Installation</li>
-                            <li><i class="fas fa-check-circle"></i>Biometric Access Control</li>
-                            <li><i class="fas fa-check-circle"></i>Remote Monitoring Services</li>
-                            <li><i class="fas fa-check-circle"></i>Cybersecurity Solutions</li>
-                        </ul>
-                        <a href="contact.html" class="service-btn">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="service-image security-technology-img"></div>
-                </div>
-            </div>
-
-            <!-- K9 Security Service -->
-            <div class="service-box" id="k9-security">
-                <div class="service-content">
-                    <div class="service-text">
-                        <span class="service-category">Specialized Units</span>
-                        <h2>K9 Security Services</h2>
-                        <p>Our highly trained security dogs and handlers provide specialized detection and deterrent services. Our K9 units are perfect for enhanced security at high-risk locations.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i>Drug Detection Services</li>
-                            <li><i class="fas fa-check-circle"></i>Explosive Detection</li>
-                            <li><i class="fas fa-check-circle"></i>Patrol & Deterrent Services</li>
-                            <li><i class="fas fa-check-circle"></i>Airport Security Support</li>
-                            <li><i class="fas fa-check-circle"></i>Handler Training Programs</li>
-                        </ul>
-                        <a href="contact.html" class="service-btn">
-                            Learn More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="service-image k9-security-img"></div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    
     <!-- Call to Action Section -->
     <section class="cta-section">
         <div class="cta-container">
             <h2>Ready to Secure Your Peace of Mind?</h2>
-            <p>Join hundreds of satisfied clients who trust Tutum Tech Security for their protection needs. Get your
-                free security assessment today.</p>
+            <p>Join hundreds of satisfied clients who trust Tutum Tech Security for their protection needs. Our Security Science Service approach ensures comprehensive protection of life, assets and property.</p>
 
-            <div class="cta-buttons-section">
-                <a href="contact.html#quote" class="btn-cta-primary">
-                    <i class="fas fa-phone"></i>
-                    Get Free Quote
+            <div class="cta-buttons">
+                <a href="tel:+265999613068" class="btn btn-primary">
+                    <i class="fi fi-rr-phone-call"></i> Call: +265 999 613 068
                 </a>
-                <a href="tel:+265999613068" class="btn-cta-secondary">
-                    Call Now: +265 999 613 068
+                <a href="contact.html" class="btn btn-secondary">
+                    <i class="fi fi-rr-envelope"></i> Get Free Quote
                 </a>
             </div>
         </div>
@@ -462,23 +802,7 @@
                 <!-- Company Info -->
                 <div class="footer-section">
                     <h3>Tutum Tech Security</h3>
-                    <p>Your trusted partner in comprehensive security solutions across Malawi. We are committed to
-                        providing professional, reliable, and innovative security services that give you complete peace
-                        of mind.</p>
-                    <div class="footer-social">
-                        <a href="#" class="footer-social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="footer-social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="footer-social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="footer-social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+                    <p>Your trusted partner in comprehensive security solutions across Malawi. We are committed to providing professional, reliable, and innovative security services through our Security Science Service approach.</p>
                 </div>
 
                 <!-- Quick Links -->
@@ -497,11 +821,11 @@
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
-                        <li><a href="services.html#personal-security">Personal Security</a></li>
-                        <li><a href="services.html#corporate-security">Corporate Security</a></li>
-                        <li><a href="services.html#event-security">Event Security</a></li>
-                        <li><a href="services.html#security-technology">Security Technology</a></li>
-                        <li><a href="services.html#k9-security">K9 Security</a></li>
+                        <li><a href="#corporate-security">Corporate Security</a></li>
+                        <li><a href="#personal-security">Personal Security</a></li>
+                        <li><a href="#event-security">Event Security</a></li>
+                        <li><a href="#security-technology">Security Technology</a></li>
+                        <li><a href="#k9-security">K9 Security</a></li>
                     </ul>
                 </div>
 
@@ -509,19 +833,19 @@
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Lilongwe, Malawi</span>
+                        <i class="fi fi-rr-marker"></i>
+                        <span>Behind Walkers Total Filling Station, Lilongwe</span>
                     </div>
                     <div class="footer-contact-item">
-                        <i class="fas fa-phone"></i>
+                        <i class="fi fi-rr-phone-call"></i>
                         <span>+265 999 61 30 68</span>
                     </div>
                     <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fi fi-rr-envelope"></i>
                         <span>info@tutumtech.mw</span>
                     </div>
                     <div class="footer-contact-item">
-                        <i class="fas fa-clock"></i>
+                        <i class="fi fi-rr-clock"></i>
                         <span>24/7 Emergency Response</span>
                     </div>
                 </div>
@@ -535,7 +859,86 @@
             </div>
         </div>
     </footer>
-    <script src="./js/main.js"></script>
-</body>
 
+    <script>
+        // Mobile menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger menu
+            const spans = menuToggle.getElementsByTagName('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.getElementsByTagName('span');
+                spans[0].style.transform = 'rotate(0) translate(0, 0)';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'rotate(0) translate(0, 0)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Contact button interaction
+        document.querySelectorAll('.service-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
 </html>
