@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutum Tech Security - Protection Is Our Business</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
         :root {
             --primary-blue: #1e88e5;
@@ -118,7 +120,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1926&q=80');
+                url('./assets/images/hero-bg.jfif');
             background-size: cover;
             background-position: center;
             padding: 120px 0 80px;
@@ -384,7 +386,7 @@
         .cta-section {
             padding: 80px 20px;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                url('./assets/images/intro.jfif');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -498,38 +500,52 @@
         .image-section {
             position: relative;
             height: 200px;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         .image-section.personal-security {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                url('./assets/images/personal.jpeg');
+            background-size: cover;
+            background-position: center;
         }
 
         .image-section.corporate-security {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                url('./assets/images/corporate.jfif');
+            background-size: cover;
+            background-position: center;
         }
 
         .image-section.event-security {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://images.unsplash.com/photo-1502685104226-ee32379f42f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                url('./assets/images/services-event.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .image-section.security-technology {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                url('./assets/images/services-tech.jpeg');
+            background-size: cover;
+            background-position: center;
         }
 
         .image-section.k9-security {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://images.unsplash.com/photo-1560743641-3914f2c45636?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                url('./assets/images/k9.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .image-section.short-term-security {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                url('./assets/images/short-term.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .blue-icon-box {
@@ -587,6 +603,96 @@
         .read-more:hover {
             color: #1565c0;
             text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f4c75 0%, #1b262c 100%);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact-item i {
+            color: var(--primary-blue);
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-blue);
         }
 
         /* Mobile Responsive */
@@ -673,15 +779,27 @@
             .why-choose-us-flex {
                 grid-template-columns: 1fr;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: left;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="https://via.placeholder.com/180x45/1e88e5/ffffff?text=Tutum+Tech" alt="Tutum Tech Security Logo">
+                <img src="./assets/images/logo.png" alt="Tutum Tech Security Logo">
             </a>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -736,12 +854,18 @@
                     </div>
                     <h2>Security Excellence Since 2019</h2>
                 </div>
-                <p>Founded by Mr. Geoffrey Falinya, Tutum Tech Security Services has been Malawi's trusted partner in comprehensive security solutions for over five years.</p>
-                <p class="location-text">Located behind Walkers Total Filling Station in Lilongwe, we've built our reputation on our unique <span class="sss-highlight">Security Science Service (SSS)</span> approach, combining <span class="traditional-security">traditional security</span> with advanced technological solutions.</p>
-                <p class="philosophy"><span class="philosophy-quote">"Crime has no hiding place"</span> - This philosophy drives everything we do.</p>
+                <p>Founded by Mr. Geoffrey Falinya, Tutum Tech Security Services has been Malawi's trusted partner in
+                    comprehensive security solutions for over five years.</p>
+                <p class="location-text">Located behind Walkers Total Filling Station in Lilongwe, we've built our
+                    reputation on our unique <span class="sss-highlight">Security Science Service (SSS)</span> approach,
+                    combining <span class="traditional-security">traditional security</span> with advanced technological
+                    solutions.</p>
+                <p class="philosophy"><span class="philosophy-quote">"Crime has no hiding place"</span> - This
+                    philosophy drives everything we do.</p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Security Professional at Work">
+                <img src="./assets/images/intro2.jfif"
+                    alt="Security Professional at Work">
             </div>
         </div>
     </section>
@@ -759,19 +883,23 @@
             <div class="why-choose-us-flex">
                 <div class="reason-card">
                     <h3>Security Science Service (SSS)</h3>
-                    <p>Our unique SSS approach ensures comprehensive protection of life, assets, and property, setting us apart from traditional security providers.</p>
+                    <p>Our unique SSS approach ensures comprehensive protection of life, assets, and property, setting
+                        us apart from traditional security providers.</p>
                 </div>
                 <div class="reason-card">
                     <h3>Ethical & Professional Team</h3>
-                    <p>Our security guards operate with proactivity, reliability, integrity, and discipline, adhering to the highest ethical standards.</p>
+                    <p>Our security guards operate with proactivity, reliability, integrity, and discipline, adhering to
+                        the highest ethical standards.</p>
                 </div>
                 <div class="reason-card">
                     <h3>24/7 Operations</h3>
-                    <p>We provide round-the-clock security with back-to-back response teams and K-9 support for rapid and effective operations.</p>
+                    <p>We provide round-the-clock security with back-to-back response teams and K-9 support for rapid
+                        and effective operations.</p>
                 </div>
                 <div class="reason-card">
                     <h3>Core Values</h3>
-                    <p>Loyalty, duty, respect, selflessness, honor, integrity, and courage guide our operations, ensuring trust and reliability.</p>
+                    <p>Loyalty, duty, respect, selflessness, honor, integrity, and courage guide our operations,
+                        ensuring trust and reliability.</p>
                 </div>
             </div>
         </div>
@@ -788,9 +916,10 @@
                     </div>
                     <h2>Comprehensive Security Solutions</h2>
                 </div>
-                <p>From corporate protection to personal security, we offer a complete range of professional security services backed by our unique Security Science Service approach.</p>
+                <p>From corporate protection to personal security, we offer a complete range of professional security
+                    services backed by our unique Security Science Service approach.</p>
             </div>
-            
+
             <div class="services-flex">
                 <!-- Card 1: Personal Security Management -->
                 <div class="service-card">
@@ -888,8 +1017,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-container">
-            <h2>Secure Your Future with Tutum Tech</h2>
-            <p>Consult us today for wholesome security services tailored to your needs. Let our expert team protect your life, assets, and property with our Security Science Service approach.</p>
+            <h2>Secure Your Future with Us</h2>
+            <p>Consult us today for wholesome security services tailored to your needs. Let our expert team protect your
+                life, assets, and property with our Security Science Service approach.</p>
             <div class="cta-buttons">
                 <a href="contact.html#quote" class="btn btn-primary">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -911,7 +1041,72 @@
         </div>
     </section>
 
-    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h3>Tutum Tech Security</h3>
+                    <p>Your trusted partner in comprehensive security solutions across Malawi. We are committed to
+                        providing professional, reliable, and innovative security services that give you complete peace
+                        of mind.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#personal-security">Personal Security</a></li>
+                        <li><a href="services.html#corporate-security">Corporate Security</a></li>
+                        <li><a href="services.html#event-security">Event Security</a></li>
+                        <li><a href="services.html#security-technology">Security Technology</a></li>
+                        <li><a href="services.html#k9-security">K9 Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-marker"></i>
+                        <span>Behind Walkers Total Filling Station, Lilongwe</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-phone-call"></i>
+                        <span>+265 999 61 30 68</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-envelope"></i>
+                        <span>info@tutumtech.mw</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-clock"></i>
+                        <span>24/7 Emergency Response</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tutum Tech Security Services. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://nyasacreatives.netlify.app/" target="_blank">Developed by Nyasa Creatives.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Mobile menu functionality
@@ -920,7 +1115,7 @@
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
+
             // Animate hamburger menu
             const spans = menuToggle.getElementsByTagName('span');
             if (navLinks.classList.contains('active')) {
@@ -960,4 +1155,5 @@
         });
     </script>
 </body>
+
 </html>

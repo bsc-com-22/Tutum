@@ -118,7 +118,7 @@
         /* Careers Hero Section */
         .careers-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                url('./assets/images/services-hero.jfif');
             background-size: cover;
             background-position: center;
             padding: 120px 0 80px;
@@ -286,7 +286,11 @@
         /* CTA Section */
         .cta-section {
             padding: 80px 20px;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #1565c0 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('./assets/images/hero-bg.jfif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
         }
 
@@ -359,6 +363,96 @@
             width: 20px;
             height: 20px;
             stroke: currentColor;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f4c75 0%, #1b262c 100%);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact-item i {
+            color: var(--primary-blue);
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-blue);
         }
 
         /* Mobile Responsive */
@@ -434,6 +528,17 @@
             .cta-container h2 {
                 font-size: 2rem;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: left;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -442,7 +547,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="https://via.placeholder.com/180x45/1e88e5/ffffff?text=Tutum+Tech" alt="Tutum Tech Security Logo">
+                <img src="./assets/images/logo.png" alt="Tutum Tech Security Logo">
             </a>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -536,6 +641,71 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h3>Tutum Tech Security</h3>
+                    <p>Your trusted partner in comprehensive security solutions across Malawi. We are committed to providing professional, reliable, and innovative security services that give you complete peace of mind.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#personal-security">Personal Security</a></li>
+                        <li><a href="services.html#corporate-security">Corporate Security</a></li>
+                        <li><a href="services.html#event-security">Event Security</a></li>
+                        <li><a href="services.html#security-technology">Security Technology</a></li>
+                        <li><a href="services.html#k9-security">K9 Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-marker"></i>
+                        <span>Behind Walkers Total Filling Station, Lilongwe</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-phone-call"></i>
+                        <span>+265 999 61 30 68</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-envelope"></i>
+                        <span>info@tutumtech.mw</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fi fi-rr-clock"></i>
+                        <span>24/7 Emergency Response</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tutum Tech Security Services. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://nyasacreatives.netlify.app/" target="_blank">Developed by Nyasa Creatives.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Mobile menu functionality
